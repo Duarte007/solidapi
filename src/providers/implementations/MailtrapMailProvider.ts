@@ -1,6 +1,7 @@
 import { IMailProvider, IMessage } from "../IMailProvider";
 import nodemailer from "nodemailer";
 import Mail from "nodemailer/lib/mailer";
+import { config } from "../../config";
 
 export class MailtrapMailProvider implements IMailProvider {
   private transporter: Mail;
@@ -10,8 +11,8 @@ export class MailtrapMailProvider implements IMailProvider {
       host: "smtp.mailtrap.io",
       port: 2525,
       auth: {
-        user: "b90c0b32f26b60",
-        pass: "aa8fd7b8745b6a",
+        user: config.mailUser,
+        pass: config.mailPass,
       },
     });
   }
